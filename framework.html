@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Framework - ByteForge</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4564/4564330.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: white;
+      border-bottom: 2px solid #d9d9d9;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #4CAF50;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #66bb6a;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .hero-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .section-container {
+      display: flex;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 40px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-container.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section-container img {
+      width: 45%;
+      border-radius: 10px;
+    }
+
+    .section-container .text-content {
+      width: 50%;
+    }
+
+    .text-content h3 {
+      color: #4CAF50;
+    }
+
+    footer {
+      background: url('https://img.freepik.com/vector-gratis/fondo-empresarial-moderno-diseno-tecnologia-digital_1361-3299.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer a {
+      color: #a2f5c0;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+      .section-container,
+      .section-container.reverse {
+        flex-direction: column;
+      }
+
+      .section-container img,
+      .section-container .text-content {
+        width: 100%;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      nav.open {
+        max-height: 300px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://signos-framework.com/wp-content/uploads/2024/05/signos-colores-para-cuando-es-color-oscuro-letras-en-blanco-y-clear-01.webp" alt="Logo" />
+
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Us.html">Nosotros</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="Solution.html">Soluciones</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Nuestro FrameWork</h1>
+      <p>Con nuestros años de experiencia en el desarrollo de aplicaciones, hemos logrado diseñar un conjunto estandarizado de conceptos, prácticas y criterios basados en problemáticas particulares, facilitando la solución a nuevas problemáticas de índole similar a corto y largo plazo.</p>
+    </div>
+  </section>
+
+  <section class="section-container">
+    <img src="https://signos-framework.com/wp-content/uploads/2024/05/gears.webp" alt="Imagen 1">
+    <div class="text-content">
+      <h3>Nuestra Plataforma</h3>
+      <p>Es la combinación de lenguajes de programación visual orientados a objetos de última generación, que nos brindan las herramientas necesarias para diseñar y desarrollar aplicaciones con un entorno visual amigable y de fácil aprendizaje, que se apoyan sobre uno de los sistemas de manejo de bases de datos de modelo relacional más utilizado a nivel mundial, que garantiza la coherencia e integridad de los resultados, mejora en la disponibilidad y cumplimiento de las reglas de negocios implementadas.</p>
+    </div>
+  </section>
+
+  <section class="section-container reverse">
+    <img src="https://signos-framework.com/wp-content/uploads/2024/05/Layer-3.webp" alt="Imagen 2">
+    <div class="text-content">
+      <h3>Usabilidad</h3>
+      <p>Nuestras soluciones cuentan con una interfaz intuitiva y fácil de usar, fortaleciendo el núcleo del negocio y ayudando a invertir menos recursos en capacitar a los colaboradores en el uso de nuevas herramientas, permitiendo el enfoque en actividades productivas para su empresa.</p>
+    </div>
+  </section>
+
+  <section class="section-container">
+    <img src="https://www.marthadebayle.com/wp-content/uploads/2015/10/Qu%C3%A9-tan-importantee-es-ser-compatibles.jpg" alt="Imagen 3">
+    <div class="text-content">
+      <h3>Compatibilidad</h3>
+      <p>Nuestras soluciones incluyen como funcionalidad básica la posibilidad de comunicarse con las aplicaciones de escritorio que hoy en día rigen los estándares como plataforma informática dentro de las organizaciones.</p>
+    </div>
+  </section>
+
+  <section class="section-container reverse">
+    <img src="https://s1.significados.com/foto/integracion_sm.jpg?class=article" alt="Imagen 4">
+    <div class="text-content">
+      <h3>Integración</h3>
+      <p>Nuestras soluciones permiten ser integrada con periféricos, dispositivos externos o aplicaciones de terceros, con el objetivo de intercambiar información operativa de manera efectiva, permitiendo a los colaboradores enfocar sus esfuerzos en la creación de competencias que generen valor para la organización</p>
+    </div>
+  </section> 
+
+  <section class="section-container">
+    <img src="https://www.santanderopenacademy.com/content/dam/becasmicrosites/01-soa-blog/gestion-financiera-1.jpg" alt="Imagen 3">
+    <div class="text-content">
+      <h3>Escalabilidad</h3>
+      <p>Nuestras soluciones son sometidas a procesos de mejora continua a nivel administrativo, funcional, geográfico, de carga y de generación, que permitan mantener o implementar compatibilidad con nuevas tecnologías, agregando funciones que permitan reaccionar y adaptarse de manera razonable en términos de costos, tiempos y nivel de complejidad ante necesidades de nuestros clientes o por evolución tecnológica</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>2025 © Signos Framework, SRL. Todos los derechos reservados.</p>
+    <p>Autores de la pagina: Nael Pineda y Marcos Gonzales.</p>
+    <p><a href="https://signos-framework.com/terminos-de-uso-y-privacidad/">Términos de uso y privacidad</a></p>
+  </footer>
+
+  <!-- Animaciones al hacer scroll -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.section-container, .hero-content').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Menú hamburguesa
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sobre Nosotros - ByteForge</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4564/4564330.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: white;
+      border-bottom: 2px solid #d9d9d9;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #4CAF50;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #66bb6a;
+    }
+
+    .hero-nosotros {
+      position: relative;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-nosotros::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://signos-framework.com/wp-content/uploads/2024/03/Artboard-1.webp') no-repeat center center/cover;
+      z-index: 0;
+    }
+
+    .hero-nosotros h1 {
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .info-boxes {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      flex: 1;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .info-box h2 {
+      color: #4CAF50;
+      margin-bottom: 0.5rem;
+    }
+
+    .galeria-texto {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .galeria {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .texto-lateral {
+      flex: 1;
+    }
+
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #d9f2dd;
+      text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        width: 200px;
+        display: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .info-boxes,
+      .galeria-texto {
+        flex-direction: column;
+      }
+
+      .hero-nosotros h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://signos-framework.com/wp-content/uploads/2024/05/signos-colores-para-cuando-es-color-oscuro-letras-en-blanco-y-clear-01.webp" alt="Signos Logo" />
+    <nav>
+      <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Us.html">Nosotros</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="Solution.html">Soluciones</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero-nosotros">
+    <h1>Sobre Nosotros</h1>
+  </div>
+
+  <div class="container">
+    <h2 style="color: #4CAF50;">¿En qué asesoramos?</h2>
+    <br>
+    <p>Nos asesoramos de profesionales de las distintas áreas administrativas a las que van orientadas nuestras soluciones, con experiencia y habilidades que conforman en respaldo necesario para avalar nuestras propuestas.</p>
+
+    <h2 style="color: #4CAF50; margin-top: 2rem;">¿Qué formamos?</h2>
+    <br>
+    <p>Un equipo de trabajo con expertos en análisis y automatización de procesos, todos con un objetivo común y con la convicción de que las metas pueden ser alcanzadas integrando los conocimientos, capacidad, habilidades y competencia de cada uno de nosotros, colaborando de manera mutua para encontrar una solución efectiva a las problemáticas que nos presentan nuestros clientes.</p>
+    <br>
+    <p>Consideramos que el uso de un sistema para procesar y producir informaciones de forma rápida y con un mínimo de esfuerzo, constituye la principal herramienta mediante la cual la alta gerencia podrá dirigir y administrar de una manera más eficiente la empresa.</p>
+
+    <div class="galeria-texto">
+      <div class="galeria">
+        <img src="https://signos-framework.com/wp-content/uploads/2024/03/Artboard-1.webp" alt="Galería 1">
+        <img src="https://signos-framework.com/wp-content/uploads/2024/02/pc1.webp" alt="Galería 2">
+        <img src="https://signos-framework.com/wp-content/uploads/2024/02/04-clientstories2.jpg" alt="Galería 3">
+        <img src="https://signos-framework.com/wp-content/uploads/2024/04/strength-people-hands-success-meeting-scaled.webp" alt="Galería 4">
+      </div>
+      <div class="texto-lateral">
+        <h3 style="color:#4CAF50;">Nuestra Historia</h3>
+        <p>Somos un equipo de profesionales multidisciplinario con más de 20 años de experiencia en la automatización de procesos, motivados a aportar soluciones tecnológicas y de desarrollo administrativo a nuestros clientes para que estos a su vez estén en capacidad de ofrecer un servicio más eficiente a los suyos, siempre apegados a los principios que rigen la ética profesional. Con más de dos décadas de experiencia, ByteForge nació de la necesidad de digitalizar procesos y optimizar operaciones en empresas de distintos sectores.</p>
+        <br>
+        <p>Desde nuestros inicios, hemos acompañado a decenas de organizaciones en su camino hacia la transformación digital, Tenemos claro nuestro propósito de existencia y cómo queremos contribuir a la sociedad; conocemos nuestros objetivos de mediano y largo plazo, apoyados en los principios y creencias que guían nuestra cultura y comportamiento..</p>
+      </div>
+    </div>
+
+    <div class="info-boxes">
+      <div class="info-box">
+        <h2>Misión</h2>
+        <p>Proveer una solución completa, integrando una herramienta informática con una plataforma tecnológica, que combinados con el talento humano, sea capaz de permitir implementar y mantener los controles necesarios para que los procesos operativos, administrativos y comerciales de las empresas sean más eficientes, que ayuden a alcanzar metas de crecimiento, permitiendo disponer a tiempo de la información necesaria para la toma de decisiones.</p>
+      </div>
+      <div class="info-box">
+        <h2>Visión</h2>
+        <p>Ser una empresa líder brindando soluciones informáticas en el área administrativa, financiera y comercial, apoyados en nuestra capacidad, valores y estándares éticos, brindando el mejor servicio y seguridad a nuestros clientes.</p>
+      </div>
+      <div class="info-box">
+        <h2>Valores</h2>
+        <p>Empatía, Cortesía, Honestidad, Organización, Compromiso, Responsabilidad, Confidencialidad.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>2025 © Signos Framework, SRL. Todos los derechos reservados.</p>
+    <p>Autores de la pagina: Nael Pineda y Marcos Gonzales.</p>
+    <p><a href="https://signos-framework.com/terminos-de-uso-y-privacidad/">Términos de uso y privacidad</a></p>
+  </footer>
+
+</body>
+</html>
+
+

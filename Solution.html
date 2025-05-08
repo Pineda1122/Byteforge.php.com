@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Soluciones - ByteForge</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4564/4564330.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e6eef5;
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .hero-image {
+      background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero-image h1 {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    .hero-image p {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .intro-section {
+      display: flex;
+      background-color: white;
+      margin: 30px auto;
+      padding: 30px;
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .intro-text {
+      flex: 2;
+    }
+
+    .intro-text h1 {
+      color: #1a1a1a;
+      font-size: 28px;
+    }
+
+    .intro-text p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .intro-image {
+      flex: 1;
+      padding-left: 30px;
+    }
+
+    .intro-image img {
+      width: 100%;
+      border-radius: 50%;
+      border: 4px solid #ccc;
+    }
+
+    .cards-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 0;
+      background-image: url('No le pondre ninguna imagen de fondo');
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      height: 60px;
+      margin-bottom: 15px;
+      transition: filter 0.3s ease;
+    }
+
+    .card:hover img {
+      filter: hue-rotate(90deg) brightness(1.2);
+    }
+
+    .card h2 {
+      color: #7cb342;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .card button {
+      background-color: #ccc;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #7cb342;
+      color: white;
+    }
+
+    .card.animated {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: url('https://img.freepik.com/vector-gratis/fondo-empresarial-moderno-diseno-tecnologia-digital_1361-3299.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      background-size: cover;
+    }
+
+    footer a {
+      color: #a2f5c0;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+  text-align: left;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.contact-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #ccc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #4CAF50;
+}
+
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #dce6ed;
+    }
+
+    .intro-section {
+      position: relative;
+      background-color: white;
+      border-radius: 16px;
+      margin: 80px auto;
+      max-width: 900px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      padding-right: 160px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .intro-text {
+      padding: 40px 40px 40px 0;
+      flex: 1;
+    }
+
+    .intro-text h1 {
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: #1e2d3b;
+    }
+
+    .intro-text p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #37474f;
+    }
+
+    .intro-image {
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .intro-image img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @media screen and (max-width: 768px) {
+      .intro-section {
+        flex-direction: column;
+        height: auto;
+        padding: 140px 20px 40px;
+      }
+
+      .intro-image {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .intro-image img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .intro-text {
+        text-align: center;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+ <!-- Modal -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2 id="modalTitle">Título aquí</h2>
+    <p id="modalDesc">descripcion del modal al tocar</p>
+    <a id="contactBtn" href="contact.html" target="_blank" class="contact-button">Contáctanos</a>
+  </div>
+</div>
+
+<header>
+  <img src="https://signos-framework.com/wp-content/uploads/2024/05/signos-colores-para-cuando-es-color-oscuro-letras-en-blanco-y-clear-01.webp" alt="Logo" />
+  <nav>
+  <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Us.html">Nosotros</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="Solution.html">Soluciones</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+</header>
+<section class="hero-image">
+  <h1>Soluciones</h1>
+</section>
+
+<div class="intro-section">
+  <div class="intro-image">
+    <img src="https://img.freepik.com/vector-premium/-soluciones_24877-45475.jpg" alt="Equipo trabajando">
+  </div>
+  <div class="intro-text">
+    <h1>Todas nuestras implementaciones</h1>
+    <p>
+      Incluyen una capacitación específica y personalizada en cada uno de los módulos adquiridos.
+      De igual forma proporcionamos actualizaciones continuas, incorporando mejoras y solucionando
+      incidencias mediante un seguimiento constante, todo ello para ayudar a nuestros clientes a
+      maximizar su rendimiento y de esta forma crecer con ellos.
+    </p>
+  </div>
+</div>
+
+<div class="cards-section" id="cards-container">
+  <!-- Aquí se agregarán todas las tarjetas, se mostrarán dinámicamente -->
+</div>
+
+<footer>
+  <p>2025 © Signos Framework, SRL. Todos los derechos reservados.</p>
+  <p>Autores de la pagina: Nael Pineda y Marcos Gonzales.</p>
+  <p><a href="https://signos-framework.com/terminos-de-uso-y-privacidad/">Términos de uso y privacidad</a></p>
+</footer>
+
+<script>
+  const cardsData = [
+    { title: "Gestión de Casinos", desc: "Permite controlar de manera eficiente todos los movimientos de efectivo y fichas de este tipo de negocios.", icon: "https://cdn-icons-png.flaticon.com/512/1290/1290358.png" },
+    { title: "Gestión Comercial", desc: "Establezca estrategias para optimizar sus procesos comerciales y conozca la rentabilidad de su empresa.", icon: "https://cdn-icons-png.flaticon.com/512/5656/5656608.png" },
+    { title: "CRM Gestión de Casos", desc: "Organice sus tareas, administre sus recursos y dé seguimiento a sus proyectos de forma versátil y profesional.", icon: "https://cdn-icons-png.flaticon.com/512/12236/12236845.png" },
+    { title: "Gestión de Turnos", desc: "Mejore el flujo de atención con reservas online y control del personal.", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo_zESx9tm8ZeBDmsbEzJ0UZcfWkt_8fqtTQ&s" },
+    { title: "Gestión Humana", desc: "Optimice la administración del talento humano en su empresa.", icon: "https://cdn-icons-png.flaticon.com/512/10872/10872091.png" },
+    { title: "Gestión de Gimnasios", desc: "Automatice el ingreso, membresías, pagos y más.", icon: "https://cdn-icons-png.flaticon.com/512/6750/6750831.png" },
+    { title: "ERP Gestión Financiera", desc: "Gestione presupuestos, ingresos y egresos de manera integral.", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-VyHAbcwJJ2c5V_qDP25RFuM8eVTHNMxGaQ&s" },
+    { title: "Gestión Campos de Golf", desc: "Administre horarios y reportes de gestión en campos de golf.", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8a_XF5QKqCjYEaBExqfVVO5KF69jNFqbsiA&s" },
+    { title: "Gestión Centros Comerciales", desc: "Controle locales, contratos, cobros y mantenimiento.", icon: "https://cdn-icons-png.flaticon.com/512/5900/5900226.png" },
+    { title: "Gestión Puntos de Venta", desc: "Maneje inventarios, ventas y facturación al instante.", icon: "https://cdn-icons-png.flaticon.com/512/9423/9423134.png" },
+    { title: "Gestión Proyectos Inmobiliarios", desc: "Organice obras, pagos, etapas y clientes en un solo lugar.", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWz7MJQj7Abv8fOC1qhbKBS0Q7WKJFGvs9pg&s" },
+    { title: "Gestión Centros de Estética", desc: "Reserve citas, maneje servicios y realice cobros.", icon: "https://st3.depositphotos.com/1003359/18097/v/450/depositphotos_180975128-stock-illustration-illustration-of-woman-with-beautiful.jpg" },
+    { title: "Diseño de Páginas Web", desc: "Cree y administre sitios web profesionales.", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlJSEl4Sz5NInPGg99EJINLSVWTReP9jTYdg&s" }
+  ];
+
+  const container = document.getElementById('cards-container');
+
+  cardsData.forEach(data => {
+    const card = document.createElement('div');
+    card.className = 'card animated';
+    card.innerHTML = `
+      <img src="${data.icon}" alt="${data.title}">
+      <h2>${data.title}</h2>
+      <p>${data.desc}</p>
+      <button>Más Información</button>
+    `;
+    container.appendChild(card);
+  });
+
+  // Scroll animation
+  const revealOnScroll = () => {
+    const cards = document.querySelectorAll('.card');
+    const trigger = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < trigger) {
+        card.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  const modal = document.getElementById('infoModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const closeModal = document.querySelector('.close-btn');
+
+document.querySelectorAll('.card button').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    modalTitle.textContent = cardsData[index].title;
+    modalDesc.textContent = "Para mas informacion, contactese con nosotros"  + "."; 
+    modal.style.display = 'flex';
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+</script>
+
+</body>
+</html>

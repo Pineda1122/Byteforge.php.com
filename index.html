@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>ByteForge</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4564/4564330.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: white;
+      border-bottom: 2px solid #d9d9d9;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #66bb6a;
+    }
+
+    .hero {
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .hero.fade-out {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero.fade-in {
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .solution-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .solution-card img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: #d9f2dd;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* ... ya tienes el inicio ... */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  background: #4CAF50;
+  height: 4px;
+  width: 25px;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* Media Query para tablets y móviles */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .solution-card img {
+    height: 150px;
+  }
+
+  .solution-card {
+  padding: 0.8rem;
+}
+
+.solution-card h3 {
+  font-size: 1rem;
+}
+
+.solution-card img {
+  height: 130px;
+}
+
+.solutions-grid {
+  gap: 1rem;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+section p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .solution-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .solution-card img {
+    height: 110px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+.video-animado {
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.video-animado:hover {
+  transform: scale(1.5);
+}
+
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://signos-framework.com/wp-content/uploads/2024/05/signos-colores-para-cuando-es-color-oscuro-letras-en-blanco-y-clear-01.webp" alt="Signos Logo" />
+    
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Us.html">Nosotros</a></li>
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="Solution.html">Soluciones</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero fade-in" id="hero-section">
+    <h1>Automatizamos tus procesos</h1>
+  </div>
+
+  <main>
+    <section class="reveal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+      <div style="flex: 1; min-width: 280px;">
+        <video id="video-somos" class="video-animado" width="300" muted autoplay loop onclick="expandVideo(this)">
+          <source src="video/byteforge.mp4" type="video/mp4">
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </div>
+      <div style="flex: 2; min-width: 280px;">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+          Somos un equipo multidisciplinario con más de 20 años de experiencia en automatización de procesos y desarrollo de nuevas tecnologías, comprometidos con la ética y calidad profesional...
+        </p>
+      </div>
+    </section>
+    
+    <section class="reveal">
+      <h2>Nuestras Soluciones</h2>
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <img src="https://www.prosegur.com.pe/dam/jcr:bd11c553-0b71-48d8-871a-b636c1f8243d/casino%20(1).jpg" alt="Gestión de Casinos" />
+          <h3>Gestión de Casinos</h3>
+        </div>
+        <div class="solution-card">
+          <img src="https://www.marketeroslatam.com/wp-content/uploads/2022/02/marketing-estrategico-gestion-comercial.jpg" alt="Gestión Comercial" />
+          <h3>Gestión Comercial</h3>
+        </div>
+        <div class="solution-card">
+          <img src="https://estudiarvirtual.unipiloto.edu.co/hubfs/Imported_Blog_Media/que-es-la-gestion-humana-de-las-organizaciones.webp" alt="Gestión Humana" />
+          <h3>Gestión Humana</h3>
+        </div>
+        <div class="solution-card">
+          <img src="https://mercadofitness.com/wp-content/uploads/2020/08/Asociacion-Gimnasios-Departamento-Cochabamba-1.jpeg" alt="Gestión de Gimnasios" />
+          <h3>Gestión de Gimnasios</h3>
+        </div>
+        <div class="solution-card">
+            <img src="https://cdn.prod.website-files.com/5c0923437b3820198bab7be0/676434ca5b581432adf2b52f_5cbdf19d6f7867360c6cb71a_fraccionamientos.jpeg" alt="Gestión de Centros comerciales" />
+            <h3>Gestión de Centros comerciales</h3>
+          </div>
+          <div class="solution-card">
+            <img src="https://www.santanderopenacademy.com/content/dam/becasmicrosites/01-soa-blog/gestion-financiera-1.jpg" alt="Gestión Financiera" />
+            <h3>Gestión Financiera</h3>
+          </div>
+          <div class="solution-card">
+            <img src="https://albertoperezcedillo.wordpress.com/wp-content/uploads/2018/02/rehab.jpg?w=640" alt="Gestión de Casos" />
+            <h3>Gestión de Casos</h3>
+          </div>
+          <div class="solution-card">
+            <img src=" https://debmedia.com/blog/wp-content/uploads/2021/01/21-01-21-IMG-2.jpg" alt="Gestion de Turnos" />
+            <h3>Gestion de Turnos</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <section class="reveal">
+      <h2>Clientes</h2>
+      <p>Nuestros clientes son nuestro mayor activo. siempre buscando superar sus expectativas. por eso procuramos desarrollar relaciones que nos conviertan en socios estratégicos, motivados por el compromiso de ofrecerles soluciones que cumplan y superen sus expectativas.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>2025 © Signos Framework, SRL. Todos los derechos reservados.</p>
+    <p>Autores de la pagina: Nael Pineda y Marcos Gonzales.</p>
+    <p><a href="https://signos-framework.com/terminos-de-uso-y-privacidad/">Términos de uso y privacidad</a></p>
+  </footer>
+
+  <script>
+    const heroSection = document.getElementById('hero-section');
+    const heroImages = [
+      "https://www.prosegur.com.pe/dam/jcr:bd11c553-0b71-48d8-871a-b636c1f8243d/casino%20(1).jpg",
+      "https://www.marketeroslatam.com/wp-content/uploads/2022/02/marketing-estrategico-gestion-comercial.jpg",
+      "https://estudiarvirtual.unipiloto.edu.co/hubfs/Imported_Blog_Media/que-es-la-gestion-humana-de-las-organizaciones.webp",
+      "https://mercadofitness.com/wp-content/uploads/2020/08/Asociacion-Gimnasios-Departamento-Cochabamba-1.jpeg",
+      "https://cdn.prod.website-files.com/5c0923437b3820198bab7be0/676434ca5b581432adf2b52f_5cbdf19d6f7867360c6cb71a_fraccionamientos.jpeg",
+      "https://www.santanderopenacademy.com/content/dam/becasmicrosites/01-soa-blog/gestion-financiera-1.jpg",
+      "https://albertoperezcedillo.wordpress.com/wp-content/uploads/2018/02/rehab.jpg?w=640",
+      "https://debmedia.com/blog/wp-content/uploads/2021/01/21-01-21-IMG-2.jpg",
+    ];
+
+    let currentImageIndex = 0;
+
+    function changeHeroBackground() {
+      heroSection.classList.remove('fade-in');
+      heroSection.classList.add('fade-out');
+      setTimeout(() => {
+        currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+        heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${heroImages[currentImageIndex]}')`;
+        heroSection.classList.remove('fade-out');
+        heroSection.classList.add('fade-in');
+      }, 1000);
+    }
+
+    heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${heroImages[currentImageIndex]}')`;
+    setInterval(changeHeroBackground, 4000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    document.querySelectorAll('.reveal').forEach(section => {
+      observer.observe(section);
+    });
+
+    const toggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+  </script>
+  <script>
+    function expandVideo(video) {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    }
+  </script>
+  
+</body>
+</html>
